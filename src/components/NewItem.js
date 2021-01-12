@@ -40,6 +40,8 @@ export default class NewItem extends Component {
             localStorage.setItem('linkList', JSON.stringify(linkList));
             window.toastr.success(this.state.name + ' was added.');
             this.setState({ name: '', url: '' });
+        } else {
+            window.toastr.info('Do not keep any empty fields!');
         }
     }
 
@@ -56,12 +58,12 @@ export default class NewItem extends Component {
                         <form>
                             <div className="form-group">
                                 <label>Link Name:</label>
-                                <input type="text" className="form-control" placeholder="e.g. HepsiBurada" onChange={this.handleChangeName} />
+                                <input type="text" className="form-control" placeholder="e.g. HepsiBurada" value={this.state.name} onChange={this.handleChangeName} />
 
                             </div>
                             <div className="form-group mt-4">
                                 <label>Link URL:</label>
-                                <input type="text" className="form-control" placeholder="e.g. https://www.hepsiburada.com/" onChange={this.handleChangeURL} />
+                                <input type="text" className="form-control" placeholder="e.g. https://www.hepsiburada.com/" value={this.state.url} onChange={this.handleChangeURL} />
                             </div>
 
                             <button type="submit" className="btn btn-success mt-4" onClick={this.handleClickAdd}>ADD</button>
