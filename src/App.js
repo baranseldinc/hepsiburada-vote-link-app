@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import LinkListSection from './components/LinkListSection';
+import HeaderSection from './components/HeaderSection';
+import NewItem from './components/NewItem';
 
-function App() {
+
+function App(props) {
+  const appName = <span><b>Link</b>VOTE Challenge</span>;
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <HeaderSection appName={appName} />
+
+      <hr className="mt-0" />
+
+      {!props.page && <LinkListSection />}
+
+      {props.page === 'new' && <NewItem />}
+
     </div>
   );
 }

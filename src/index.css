@@ -1,13 +1,127 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.linkContainer {
+  border-bottom:1px solid #eee;
+  padding-bottom: 6px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.paginationItem {
+  padding:10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.paginationItem:hover {
+  color:green;
+  cursor: pointer;
+  border-color: green;
+}
+
+.activePage {
+  border:1px solid #000;
+}
+
+.divLinkListSection, .paginationSection {
+  max-width: 600px;
+  margin:0 auto;
+}
+
+.linkContainer {
+  position: relative;
+}
+.linkContainer:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.linkDeleteButton {
+  position: absolute;
+  top:0;
+  right: 0;
+  border:1px solid white;
+  border-radius: 60%;
+  padding:2px;
+  font-size: 24px;
+  color:red;
+  display: none;
+}
+
+.linkContainer:hover .linkDeleteButton{
+  background-color: rgba(0, 0, 0, 0.01);
+  cursor: pointer;
+  display: block;
+}
+
+#idReturnToList {
+  cursor: pointer;
+  font-weight: bold;
+  color:#000;
+}
+
+a{
+  text-decoration: none;
+}
+
+.totalVote, .lastVote {
+  position: absolute;
+  font-size: 10px;
+  right: 6px;
+}
+
+.lastVote {
+  top:36px;
+}
+
+.totalVote {
+  top:60px;
+}
+
+@media only screen and (max-width: 400px) {
+  #divLinkListSection button {
+    border:none !important;
+    padding:0 !important;
+  }
+
+  button {
+    font-size: 12px !important;
+  }
+
+  select{
+    font-size: 12px !important;
+  }
+  
+
+  #divLinkListSection .card  {
+      border-radius: 10%;
+  }
+
+  .card-body {
+    padding:5px;
+  }
+  body{
+    font-size: 9px;
+  }
+
+  .linkDeleteButton {
+    display: block;
+    font-size: 18px;
+  }
+
+  .totalVote, .lastVote {
+    display: none;
+  }
+
+  .linkInfo {
+    padding-left: 5px !important;
+  }
+
+  .linkInfo h5{
+    font-size: 16px;
+  }
+
+  .navbar h3 {
+      font-size: 20px;
+  }
+
+  hr{
+    margin-bottom: 6px;
+  }
 }
