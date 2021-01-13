@@ -45,6 +45,22 @@ export default class NewItem extends Component {
         }
     }
 
+    handleFocusUrl = (e) => {
+        if (this.state.name) {
+            this.setState({ url: 'https://www.' + this.state.name.toLowerCase() + '.com' });
+        } else {
+            if (!this.state.url) {
+                this.setState({ url: 'https://' });
+            }
+        }
+    }
+
+    handleBlurUrl = (e) => {
+        if (this.state.url === 'https://') {
+            this.setState({ url: '' });
+        }
+    }
+
     render() {
         return (
             <div style={{ maxWidth: '600px', margin: '0 auto' }}>
@@ -63,7 +79,8 @@ export default class NewItem extends Component {
                             </div>
                             <div className="form-group mt-4">
                                 <label>Link URL:</label>
-                                <input type="text" className="form-control" placeholder="e.g. https://www.hepsiburada.com/" value={this.state.url} onChange={this.handleChangeURL} />
+                                <input type="text" className="form-control" placeholder="e.g. https://www.hepsiburada.com/" onBlur={this.handleBlurUrl}
+                                    onFocus={this.handleFocusUrl} value={this.state.url} onChange={this.handleChangeURL} />
                             </div>
 
                             <button type="submit" className="btn btn-success mt-4" onClick={this.handleClickAdd}>ADD</button>
